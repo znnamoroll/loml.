@@ -390,16 +390,19 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .quote {
-    font-size: 1rem;
-    padding: 16px;
+    font-size: 0.8rem !important;
+    padding: 12px;
+    margin: 16px 8px;
   }
 
-  .quote-typewriter {
+  .quote::before,
+  .quote::after {
     font-size: 1rem;
   }
 }
+
 
 
     </style>
