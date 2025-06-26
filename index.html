@@ -219,21 +219,31 @@
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
-    vertical-align: bottom;
     border-right: 2px solid #2c2c2c;
     font-weight: bold;
     font-size: 1.2rem;
-    max-width: 0; /* 👈 Hide it initially */
-    opacity: 0;   /* 👈 Hide until animation */
-    animation: typingLoop 3s steps(28, end) 15s forwards,
-               blink 0.75s step-end infinite 15s;
+    max-width: 0;
+    opacity: 0;
+    vertical-align: middle; /* ✅ fixes the misalignment */
+    animation: typingReveal 3s steps(28, end) 15s forwards,
+               blink 0.75s step-end infinite 18s;
 }
 
 
-@keyframes typingLoop {
-    0% { width: 0; }
-    50% { width: 26ch; } /* adjust to length of sentence */
-    100% { width: 0; }
+
+
+@keyframes typingReveal {
+    0% {
+        max-width: 0;
+        opacity: 0;
+    }
+    1% {
+        opacity: 1;
+    }
+    100% {
+        max-width: 28ch; /* Adjust to match actual length */
+        opacity: 1;
+    }
 }
 
 @keyframes blink {
